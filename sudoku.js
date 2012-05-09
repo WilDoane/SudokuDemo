@@ -28,6 +28,14 @@ var testSuite = function() {
   assert("isUsed(1, 1) === false");
   assert("isUsed(1, 7) === true ");
   assert("isUsed(1, 5) === true ");
+  
+  
+  
+  assert("spliceString('abcde', 'X', 0) === 'Xbcde'");
+  assert("spliceString('abcde', 'X', 1) === 'aXcde'");
+  assert("spliceString('abcde', 'X', 2) === 'abXde'");
+
+
 }
 
 
@@ -74,13 +82,18 @@ var isUsed = function(rowNumber, digit) {
   
 }
 
+var spliceString = function(str, char, pos) {
+  /*
+     abcde, X, 2  --> abXde
+  */
+  
+  return str.substring(0, pos) + char + str.substring(pos + 1);
+  
+}
 
 var board = "007090058090500000008306709600040231000162000712050004201907500000001080870030400";
 
 testSuite();
-
-
-
 
 
 
