@@ -8,22 +8,26 @@ var assert = function(expression) {
 
 var testSuite = function() {  
   assert("getRow(1) === '007090058'");
-  assert("r1.indexOf('1') === -1");
-  assert("r1.indexOf('2') === -1");
-  assert("r1.indexOf('3') === -1");
-  assert("r1.indexOf('4') === -1");
-  assert("r1.indexOf('5') ===  7");
-  assert("r1.indexOf('6') === -1");
-  assert("r1.indexOf('7') ===  2");
-  assert("r1.indexOf('8') ===  8");
-  assert("r1.indexOf('9') ===  4");
+  
+  assert("getRow(1).indexOf('1') === -1");
+  assert("getRow(1).indexOf('2') === -1");
+  assert("getRow(1).indexOf('3') === -1");
+  assert("getRow(1).indexOf('4') === -1");
+  assert("getRow(1).indexOf('5') ===  7");
+  assert("getRow(1).indexOf('6') === -1");
+  assert("getRow(1).indexOf('7') ===  2");
+  assert("getRow(1).indexOf('8') ===  8");
+  assert("getRow(1).indexOf('9') ===  4");
 
 
-  assert("r1.indexOf('1') !== 2");
-  assert("r1.indexOf('2') !== 2");
-  assert("r1.indexOf('3') !== 2");
-  assert("r1.indexOf('4') !== 2");
+  assert("getRow(1).indexOf('1') !== 2");
+  assert("getRow(1).indexOf('2') !== 2");
+  assert("getRow(1).indexOf('3') !== 2");
+  assert("getRow(1).indexOf('4') !== 2");
 
+  assert("isUsed(1, 1) === false");
+  assert("isUsed(1, 7) === true ");
+  assert("isUsed(1, 5) === true ");
 }
 
 
@@ -64,10 +68,7 @@ var isUsed = function(row, digit) {
 
 var board = "007090058090500000008306709600040231000162000712050004201907500000001080870030400";
 
-console.log( isUsed(1, 1) ); // false
-console.log( isUsed(1, 7) ); // true
-
-// testSuite();
+testSuite();
 
 
 
