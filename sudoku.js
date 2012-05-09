@@ -48,9 +48,20 @@ var getRow = function(rowNumber) {
   return rowString;
 }
 
+var isUsed = function(row, digit) {
+  if (getRow(row).indexOf(digit) >= 0) {
+    return true; // is in row
+  } else {
+    return false; // is not in row
+  }
+  
+}
+
 
 var board = "007090058090500000008306709600040231000162000712050004201907500000001080870030400";
 
+console.log( isUsed(1, 1) ); // false
+console.log( isUsed(1, 7) ); // true
 
 // testSuite();
 
