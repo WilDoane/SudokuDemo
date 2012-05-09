@@ -6,6 +6,28 @@ var assert = function(expression) {
   }
 }
 
+var testSuite = function() {  
+  assert("getRow(1) === '007090058'");
+  assert("r1.indexOf('1') === -1");
+  assert("r1.indexOf('2') === -1");
+  assert("r1.indexOf('3') === -1");
+  assert("r1.indexOf('5') ===  7");
+  assert("r1.indexOf('6') === -1");
+  assert("r1.indexOf('7') ===  2");
+  assert("r1.indexOf('8') ===  8");
+  assert("r1.indexOf('9') ===  4");
+
+  assert("r1.indexOf('1') !== 2");
+  assert("r1.indexOf('2') !== 2");
+  assert("r1.indexOf('3') !== 2");
+  assert("r1.indexOf('4') !== 2");
+
+}
+
+
+
+
+
 var getRow = function(rowNumber) {
   /*
     row   startIndex   endIndex
