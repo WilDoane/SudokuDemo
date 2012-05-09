@@ -11,6 +11,7 @@ var testSuite = function() {
   assert("r1.indexOf('1') === -1");
   assert("r1.indexOf('2') === -1");
   assert("r1.indexOf('3') === -1");
+  assert("r1.indexOf('4') === -1");
   assert("r1.indexOf('5') ===  7");
   assert("r1.indexOf('6') === -1");
   assert("r1.indexOf('7') ===  2");
