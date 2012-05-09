@@ -56,8 +56,17 @@ var getRow = function(rowNumber) {
   return rowString;
 }
 
-var isUsed = function(row, digit) {
-  if (getRow(row).indexOf(digit) >= 0) {
+var isUsed = function(rowNumber, digit) {
+
+  if ( (rowNumber < 1) || (rowNumber > 9) ) {
+    throw "rowNumber must be between 1 and 9 inclusive: " + rowNumber;
+  }
+
+  if ( (digit < 1) || (digit > 9) ) {
+    throw "digit must be between 1 and 9 inclusive: " + digit;
+  }
+
+  if (getRow(rowNumber).indexOf(digit) >= 0) {
     return true; // is in row
   } else {
     return false; // is not in row
