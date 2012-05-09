@@ -82,6 +82,33 @@ var isUsedInRow = function(rowNumber, digit) {
   
 }
 
+var isUsedInColumn = function(colNumber, digit) {
+  if ( (colNumber < 1) || (colNumber > 9) ) {
+    throw "colNumber must be between 1 and 9 inclusive: " + colNumber;
+  }
+
+  if ( (digit < 1) || (digit > 9) ) {
+    throw "digit must be between 1 and 9 inclusive: " + digit;
+  }
+
+
+  var result = false;
+  
+  var i = colNumber - 1; // index: 0-80
+  var position = i + 1;  // position: 1-81
+  
+  while (i <= 80) {
+    if (board[i] == digit) {
+      result = true;
+    }
+    
+    i = i + 9;    
+  }
+  
+  return result;
+}
+
+
 var spliceString = function(str, char, pos) {
   /*
      abcde, X, 2  --> abXde
