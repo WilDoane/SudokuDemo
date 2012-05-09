@@ -40,6 +40,10 @@ var getRow = function(rowNumber) {
   
   */
   
+  if ( (rowNumber < 1) || (rowNumber > 9) ) {
+    throw "rowNumber must be between 1 and 9 inclusive: " + rowNumber;
+  }
+    
   var startIndex = (rowNumber - 1) * 9;
   var endIndex = startIndex + 9;   //   (rowNumber * 9) - 1;
   
