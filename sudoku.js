@@ -64,7 +64,7 @@ var getRow = function(rowNumber) {
   return rowString;
 }
 
-var isUsed = function(rowNumber, digit) {
+var isUsedInRow = function(rowNumber, digit) {
 
   if ( (rowNumber < 1) || (rowNumber > 9) ) {
     throw "rowNumber must be between 1 and 9 inclusive: " + rowNumber;
