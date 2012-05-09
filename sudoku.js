@@ -2,7 +2,7 @@ var assert = function(expression) {
   if (eval(expression) === true) {   
     console.log("PASSED: " + expression);
   } else {
-    throw "An assertion failed: " + expression;
+    console.log( "*** FAILED: " + expression);
   }
 }
 
@@ -17,6 +17,7 @@ var testSuite = function() {
   assert("r1.indexOf('7') ===  2");
   assert("r1.indexOf('8') ===  8");
   assert("r1.indexOf('9') ===  4");
+
 
   assert("r1.indexOf('1') !== 2");
   assert("r1.indexOf('2') !== 2");
@@ -49,4 +50,12 @@ var getRow = function(rowNumber) {
 
 
 var board = "007090058090500000008306709600040231000162000712050004201907500000001080870030400";
+
+
+// testSuite();
+
+
+
+
+
 
