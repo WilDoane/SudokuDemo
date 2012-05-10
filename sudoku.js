@@ -80,15 +80,20 @@ var getRow = function(rowNumber) {
   return rowString;
 }
 
+var isDigitValid = function(digit) {
+  if ( (digit < 1) || (digit > 9) ) {
+    throw "digit must be between 1 and 9 inclusive: " + digit;
+  } 
+}
+
+
 var isUsedInRow = function(rowNumber, digit) {
 
   if ( (rowNumber < 1) || (rowNumber > 9) ) {
     throw "rowNumber must be between 1 and 9 inclusive: " + rowNumber;
   }
 
-  if ( (digit < 1) || (digit > 9) ) {
-    throw "digit must be between 1 and 9 inclusive: " + digit;
-  }
+  isDigitValid(digit);
 
   if (getRow(rowNumber).indexOf(digit) >= 0) {
     return true; // is in row
@@ -103,10 +108,7 @@ var isUsedInColumn = function(colNumber, digit) {
     throw "colNumber must be between 1 and 9 inclusive: " + colNumber;
   }
 
-  if ( (digit < 1) || (digit > 9) ) {
-    throw "digit must be between 1 and 9 inclusive: " + digit;
-  }
-
+  isDigitValid(digit);
 
   var result = false;
   
