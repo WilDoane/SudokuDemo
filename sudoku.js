@@ -25,9 +25,25 @@ var testSuite = function() {
   assert("getRow(1).indexOf('3') !== 2");
   assert("getRow(1).indexOf('4') !== 2");
 
-  assert("isUsed(1, 1) === false");
-  assert("isUsed(1, 7) === true ");
-  assert("isUsed(1, 5) === true ");
+  assert("isUsedInRow(1, 1) === false");
+  assert("isUsedInRow(1, 2) === false ");
+  assert("isUsedInRow(1, 3) === false ");
+  assert("isUsedInRow(1, 4) === false");
+  assert("isUsedInRow(1, 5) === true ");
+  assert("isUsedInRow(1, 6) === false ");
+  assert("isUsedInRow(1, 7) === true");
+  assert("isUsedInRow(1, 8) === true ");
+  assert("isUsedInRow(1, 9) === true ");
+  
+  assert("isUsedInColumn(1, 1) === false");
+  assert("isUsedInColumn(1, 2) === true ");
+  assert("isUsedInColumn(1, 3) === false ");
+  assert("isUsedInColumn(1, 4) === false");
+  assert("isUsedInColumn(1, 5) === false ");
+  assert("isUsedInColumn(1, 6) === true ");
+  assert("isUsedInColumn(1, 7) === true");
+  assert("isUsedInColumn(1, 8) === true ");
+  assert("isUsedInColumn(1, 9) === false ");
   
   
   
