@@ -1,7 +1,7 @@
 var util = require('util');
 
 var assert = function(expression) {
-  if (eval(expression) === true) {   
+  if ( eval(expression) === true ) {   
     console.log("PASSED: " + expression);
   } else {
     console.log( "*** FAILED: " + expression);
@@ -123,7 +123,7 @@ var isUsedInRow = function(rowNumber, digit, trialBoard) {
   var result = false;
   
   for (var c = 1; c <= 9; c++) {
-    if(get(rowNumber, c, trialBoard) === digit.toString()) {
+    if( get(rowNumber, c, trialBoard) === digit.toString() ) {
       result = true;
     }
   }
@@ -148,7 +148,7 @@ var isUsedInColumn = function(colNumber, digit, trialBoard) {
   var result = false;
   
   for (var r = 1; r <= 9; r++) {
-    if(get(r, colNumber, trialBoard) === digit.toString()) {
+    if( get(r, colNumber, trialBoard) === digit.toString() ) {
       result = true;
     }
   }
@@ -164,22 +164,22 @@ var notUsedInColumn = function(colNumber, digit, trialBoard) {
 var cell = function(r, c) {
   var result = 0;
   
-  if ((1 <= r) && (r <= 9)) {
-    if ((1 <= c) && (c <= 3)) result = 1;
-    if ((4 <= c) && (c <= 6)) result = 2;
-    if ((7 <= c) && (c <= 9)) result = 3;
+  if ( (1 <= r) && (r <= 9) ) {
+    if ( (1 <= c) && (c <= 3) ) result = 1;
+    if ( (4 <= c) && (c <= 6) ) result = 2;
+    if ( (7 <= c) && (c <= 9) ) result = 3;
   }
 
-  if ((4 <= r) && (r <= 6)) {
-    if ((1 <= c) && (c <= 3)) result = 4;
-    if ((4 <= c) && (c <= 6)) result = 5;
-    if ((7 <= c) && (c <= 9)) result = 6;
+  if ( (4 <= r) && (r <= 6) ) {
+    if ( (1 <= c) && (c <= 3) ) result = 4;
+    if ( (4 <= c) && (c <= 6) ) result = 5;
+    if ( (7 <= c) && (c <= 9) ) result = 6;
   }
 
-  if ((7 <= r) && (r <= 9)) {
-    if ((1 <= c) && (c <= 3)) result = 7;
-    if ((4 <= c) && (c <= 6)) result = 8;
-    if ((7 <= c) && (c <= 9)) result = 9;
+  if ( (7 <= r) && (r <= 9) ) {
+    if ( (1 <= c) && (c <= 3) ) result = 7;
+    if ( (4 <= c) && (c <= 6) ) result = 8;
+    if ( (7 <= c) && (c <= 9) ) result = 9;
   }
   
   return result;
@@ -190,8 +190,8 @@ var isUsedInCell = function(rowNumber, colNumber, digit, trialBoard) {
   
   for (var r = 1; r <= 9; r++) {
     for (var c = 1; c <= 9; c++) {
-      if (cell(r, c) === cell(rowNumber, colNumber)) {
-        if (get(r, c, trialBoard) === digit.toString()) {
+      if ( cell(r, c) === cell(rowNumber, colNumber) ) {
+        if ( get(r, c, trialBoard) === digit.toString() ) {
           result = true;
         }
       }
@@ -229,12 +229,12 @@ var notUsedInCell = function(rowNumber, colNumber, digit, trialBoard) {
 */
 
 var get = function(r, c, trialBoard) {
-  var i = ((r - 1) * 9) + (c - 1);
+  var i = ( (r - 1) * 9 ) + (c - 1);
   return trialBoard[i];
 }
 
 var set = function(r, c, v, trialBoard) {
-  var i = ((r - 1) * 9) + (c - 1);
+  var i = ( (r - 1) * 9 ) + (c - 1);
   return spliceString(trialBoard, v.toString(), i);  
 }
 
@@ -274,7 +274,7 @@ var findSolution = function(trialBoard) {
 var outputBoard = function(b) {
   for (var r = 1; r <= 9; r++) {
     for (var c = 1; c <= 9; c++) {
-      util.print(get(r, c, b));
+      util.print( get(r, c, b) );
       if (c%3 === 0) {
         util.print("  ");
       }
