@@ -268,8 +268,13 @@ var findSolution = function(trialBoard) {
             var newBoard = set(r, c, guess, trialBoard);
             findSolution(newBoard);
             //util.print( "\n" + guess + " fell through due to contradiction. Now back at: " + r + ", " + c + "\n" )
+          } else if (guess >= 9) {
+            return;
           }
           
+        }
+        if (guess === 10) {
+          return;
         }
       }
     }
