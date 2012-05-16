@@ -9,6 +9,7 @@ var assert = function(expression) {
 }
 
 var testSuite = function() {  
+  board = "007090058090500000008306709600040231000162000712050004201907500000001080870030400";
   assert("getRow(1) === '007090058'");
   
   assert("getRow(1).indexOf('1') === -1");
