@@ -97,7 +97,7 @@ var isUsedInRow = function(rowNumber, digit, trialBoard) {
 
   var result = false;
   
-  for (var c = 1; c <= 9; r++) {
+  for (var c = 1; c <= 9; c++) {
     if(get(rowNumber, c, trialBoard) === digit.toString()) {
       result = true;
     }
