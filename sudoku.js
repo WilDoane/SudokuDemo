@@ -158,14 +158,14 @@ var notUsedInColumn = function(colNumber, digit, trialBoard) {
 
 */
 
-var get = function(r, c) {
+var get = function(r, c, trialBoard) {
   var i = ((r - 1) * 9) + (c - 1);
-  return board[i];
+  return trialBoard[i];
 }
 
-var set = function(r, c, v) {
+var set = function(r, c, v, trialBoard) {
   var i = ((r - 1) * 9) + (c - 1);
-  board = spliceString(board, v.toString(), i);  
+  return spliceString(trialBoard, v.toString(), i);  
 }
 
 var spliceString = function(str, char, pos) {
