@@ -25,15 +25,15 @@ var testSuite = function() {
   assert("getRow(1).indexOf('3') !== 2");
   assert("getRow(1).indexOf('4') !== 2");
 
-  assert("isUsedInRow(1, 1) === false");
-  assert("isUsedInRow(1, 2) === false ");
-  assert("isUsedInRow(1, 3) === false ");
-  assert("isUsedInRow(1, 4) === false");
-  assert("isUsedInRow(1, 5) === true ");
-  assert("isUsedInRow(1, 6) === false ");
-  assert("isUsedInRow(1, 7) === true");
-  assert("isUsedInRow(1, 8) === true ");
-  assert("isUsedInRow(1, 9) === true ");
+  assert("isUsedInRow(1, 1, board) === false");
+  assert("isUsedInRow(1, 2, board) === false ");
+  assert("isUsedInRow(1, 3, board) === false ");
+  assert("isUsedInRow(1, 4, board) === false");
+  assert("isUsedInRow(1, 5, board) === true ");
+  assert("isUsedInRow(1, 6, board) === false ");
+  assert("isUsedInRow(1, 7, board) === true");
+  assert("isUsedInRow(1, 8, board) === true ");
+  assert("isUsedInRow(1, 9, board) === true ");
   
   assert("isUsedInColumn(1, 1, board) === false");
   assert("isUsedInColumn(1, 2, board) === true ");
@@ -87,7 +87,7 @@ var isDigitValid = function(digit) {
 }
 
 
-var isUsedInRow = function(rowNumber, digit) {
+var isUsedInRow = function(rowNumber, digit, trialBoard) {
 
   if ( (rowNumber < 1) || (rowNumber > 9) ) {
     throw "rowNumber must be between 1 and 9 inclusive: " + rowNumber;
@@ -95,11 +95,16 @@ var isUsedInRow = function(rowNumber, digit) {
 
   isDigitValid(digit);
 
-  if (getRow(rowNumber).indexOf(digit) >= 0) {
-    return true; // is in row
-  } else {
-    return false; // is not in row
+  var result = false;
+  
+  for (var c = 1; c <= 9; r++) {
+    if(get(rowNumber, c, trialBoard) === digit.toString()) {
+      result = true;
+    }
   }
+  
+  
+  return result;
   
 }
 
