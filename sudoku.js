@@ -255,8 +255,10 @@ var isAvailable = function(r, c, guess, trialBoard) {
 }
 
 var findSolution = function(trialBoard) {
-  //outputBoard(trialBoard);
-  console.log(trialBoard);
+  if ( trialBoard.indexOf("0") === -1 ) { 
+    outputBoard(trialBoard);
+    console.log(trialBoard);
+  }
     
   for (var r = 1; r <= 9; r++) {
     for (var c = 1; c <= 9; c++) {      
