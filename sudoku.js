@@ -159,8 +159,6 @@ var notUsedInColumn = function(colNumber, digit, trialBoard) {
   return !isUsedInColumn(colNumber, digit, trialBoard);
 }
 
-var isUsedInCell = function(r, c, digit, trialBoard) {
-  return false;
 var cell = function(r, c) {
   var result = 0;
   
@@ -184,11 +182,25 @@ var cell = function(r, c) {
   
   return result;
 }
+
+var isUsedInCell = function(rowNumber, colNumber, digit, trialBoard) {
+  var result = false;
+  
+  for (var r = 1; r <= 9; r++) {
+    for (var c = 1; c <= 9; c++) {
+      if (cell(r, c) === cell(rowNumber, colNumber)) {
+        if (get(r, c, trialBoard) === digit.toString()) {
+          result = true;
+        }
+      }
+    }
+  }
+  return result;
 }
 
 
-var notUsedInCell = function(r, c, digit, trialBoard) {
-  return !isUsedInCell(r, c, digit, trialBoard);
+var notUsedInCell = function(rowNumber, colNumber, digit, trialBoard) {
+  return !isUsedInCell(rowNumber, colNumber, digit, trialBoard);
 }
 
 /*
