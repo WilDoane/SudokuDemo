@@ -103,6 +103,11 @@ var isUsedInRow = function(rowNumber, digit) {
   
 }
 
+
+var notUsedInRow = function(rowNumber, digit, trialBoard) {
+  return !isUsedInRow(rowNumber, digit, trialBoard);
+}
+
 var isUsedInColumn = function(colNumber, digit) {
   if ( (colNumber < 1) || (colNumber > 9) ) {
     throw "colNumber must be between 1 and 9 inclusive: " + colNumber;
@@ -124,6 +129,10 @@ var isUsedInColumn = function(colNumber, digit) {
   }
   
   return result;
+}
+
+var notUsedInColumn = function(colNumber, digit, trialBoard) {
+  return !isUsedInColumn(colNumber, digit, trialBoard);
 }
 
 /*
