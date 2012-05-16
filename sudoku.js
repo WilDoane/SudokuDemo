@@ -177,6 +177,9 @@ var spliceString = function(str, char, pos) {
   
 }
 
+var isAvailable = function(r, c, guess, trialBoard) {
+  return notUsedInRow() && notUsedInColumn();
+}
 var board = "007090058090500000008306709600040231000162000712050004201907500000001080870030400";
 
 testSuite();
