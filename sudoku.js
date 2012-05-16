@@ -25,6 +25,29 @@ var testSuite = function() {
   assert("getRow(1).indexOf('3') !== 2");
   assert("getRow(1).indexOf('4') !== 2");
 
+  assert("cell(1, 1) === 1");
+  assert("cell(1, 2) === 1");
+  assert("cell(1, 3) === 1");
+  assert("cell(2, 1) === 1");
+  assert("cell(2, 2) === 1");
+  assert("cell(2, 3) === 1");
+  assert("cell(3, 1) === 1");
+  assert("cell(3, 2) === 1");
+  assert("cell(3, 3) === 1");
+
+  assert("cell(4, 1) === 4");
+  assert("cell(4, 2) === 4");
+  assert("cell(4, 3) === 4");
+  assert("cell(5, 1) === 4");
+  assert("cell(5, 2) === 4");
+  assert("cell(5, 3) === 4");
+  assert("cell(6, 1) === 4");
+  assert("cell(6, 2) === 4");
+  assert("cell(6, 3) === 4");
+
+  assert("cell(9, 9) === 9");
+
+
   assert("isUsedInRow(1, 1, board) === false");
   assert("isUsedInRow(1, 2, board) === false ");
   assert("isUsedInRow(1, 3, board) === false ");
@@ -138,6 +161,29 @@ var notUsedInColumn = function(colNumber, digit, trialBoard) {
 
 var isUsedInCell = function(r, c, digit, trialBoard) {
   return false;
+var cell = function(r, c) {
+  var result = 0;
+  
+  if ((1 <= r) && (r <= 9)) {
+    if ((1 <= c) && (c <= 3)) result = 1;
+    if ((4 <= c) && (c <= 6)) result = 2;
+    if ((7 <= c) && (c <= 9)) result = 3;
+  }
+
+  if ((4 <= r) && (r <= 6)) {
+    if ((1 <= c) && (c <= 3)) result = 4;
+    if ((4 <= c) && (c <= 6)) result = 5;
+    if ((7 <= c) && (c <= 9)) result = 6;
+  }
+
+  if ((7 <= r) && (r <= 9)) {
+    if ((1 <= c) && (c <= 3)) result = 7;
+    if ((4 <= c) && (c <= 6)) result = 8;
+    if ((7 <= c) && (c <= 9)) result = 9;
+  }
+  
+  return result;
+}
 }
 
 
