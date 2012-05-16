@@ -136,6 +136,15 @@ var notUsedInColumn = function(colNumber, digit, trialBoard) {
   return !isUsedInColumn(colNumber, digit, trialBoard);
 }
 
+var isUsedInCell = function(r, c, digit, trialBoard) {
+  return false;
+}
+
+
+var notUsedInCell = function(r, c, digit, trialBoard) {
+  return !isUsedInCell(r, c, digit, trialBoard);
+}
+
 /*
 
   Array index numbers (i)
@@ -179,7 +188,9 @@ var spliceString = function(str, char, pos) {
 }
 
 var isAvailable = function(r, c, guess, trialBoard) {
-  return notUsedInRow(r, guess, trialBoard) && notUsedInColumn(c, guess, trialBoard);
+  return notUsedInRow(r, guess, trialBoard) && 
+         notUsedInColumn(c, guess, trialBoard) &&
+         notUsedInCell(r, c, guess, trialBoard);
 }
 
 var findSolution = function(trialBoard) {
