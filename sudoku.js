@@ -35,15 +35,15 @@ var testSuite = function() {
   assert("isUsedInRow(1, 8) === true ");
   assert("isUsedInRow(1, 9) === true ");
   
-  assert("isUsedInColumn(1, 1) === false");
-  assert("isUsedInColumn(1, 2) === true ");
-  assert("isUsedInColumn(1, 3) === false ");
-  assert("isUsedInColumn(1, 4) === false");
-  assert("isUsedInColumn(1, 5) === false ");
-  assert("isUsedInColumn(1, 6) === true ");
-  assert("isUsedInColumn(1, 7) === true");
-  assert("isUsedInColumn(1, 8) === true ");
-  assert("isUsedInColumn(1, 9) === false ");
+  assert("isUsedInColumn(1, 1, board) === false");
+  assert("isUsedInColumn(1, 2, board) === true ");
+  assert("isUsedInColumn(1, 3, board) === false ");
+  assert("isUsedInColumn(1, 4, board) === false");
+  assert("isUsedInColumn(1, 5, board) === false ");
+  assert("isUsedInColumn(1, 6, board) === true ");
+  assert("isUsedInColumn(1, 7, board) === true");
+  assert("isUsedInColumn(1, 8, board) === true ");
+  assert("isUsedInColumn(1, 9, board) === false ");
   
   
   
@@ -108,7 +108,7 @@ var notUsedInRow = function(rowNumber, digit, trialBoard) {
   return !isUsedInRow(rowNumber, digit, trialBoard);
 }
 
-var isUsedInColumn = function(colNumber, digit) {
+var isUsedInColumn = function(colNumber, digit, trialBoard) {
   if ( (colNumber < 1) || (colNumber > 9) ) {
     throw "colNumber must be between 1 and 9 inclusive: " + colNumber;
   }
@@ -117,16 +117,12 @@ var isUsedInColumn = function(colNumber, digit) {
 
   var result = false;
   
-  var i = colNumber - 1; // index: 0-80
-  var position = i + 1;  // position: 1-81
-  
-  while (i <= 80) {
-    if (board[i] == digit) {
+  for (var r = 1; r <= 9; r++) {
+    if(get(r, colNumber, trialBoard) === digit.toString()) {
       result = true;
     }
-    
-    i = i + 9;    
   }
+  
   
   return result;
 }
