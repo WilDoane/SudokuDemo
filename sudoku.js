@@ -178,8 +178,26 @@ var spliceString = function(str, char, pos) {
 }
 
 var isAvailable = function(r, c, guess, trialBoard) {
-  return notUsedInRow() && notUsedInColumn();
+  return notUsedInRow(r, guess, trialBoard) && notUsedInColumn(c, guess, trialBoard);
 }
+
+var findSolution = function(trialBoard) {
+  console.log(trialBoard);
+  
+  for (var r = 1; r <= 9; r++) {
+    for (var c = 1; c <= 9; c++) {
+      if (get(r, c, trialBoard) === '0') {
+          if (isAvailable(r, c, guess, trialBoard) === true) {
+            var newBoard = set(r, c, guess, trialBoard);
+            findSolution(newBoard);
+          }
+          
+        }
+      }
+    }
+  }
+}
+
 var board = "007090058090500000008306709600040231000162000712050004201907500000001080870030400";
 
 testSuite();
