@@ -260,11 +260,14 @@ var findSolution = function(trialBoard) {
   for (var r = 1; r <= 9; r++) {
     for (var c = 1; c <= 9; c++) {
       if (get(r, c, trialBoard) === '0') {
+        //util.print("Working on blank at " + r + ", " + c + "\n");
         for (var guess = 1; guess <= 9; guess++) {
           
           if ( isAvailable(r, c, guess, trialBoard) === true ) {
+            //util.print( r + ", " + c + " could be a(n) " + guess + "\n" );
             var newBoard = set(r, c, guess, trialBoard);
             findSolution(newBoard);
+            //util.print( "\n" + guess + " fell through due to contradiction. Now back at: " + r + ", " + c + "\n" )
           }
           
         }
