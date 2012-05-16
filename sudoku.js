@@ -1,3 +1,5 @@
+var util = require('util');
+
 var assert = function(expression) {
   if (eval(expression) === true) {   
     console.log("PASSED: " + expression);
@@ -252,7 +254,7 @@ var isAvailable = function(r, c, guess, trialBoard) {
 }
 
 var findSolution = function(trialBoard) {
-  console.log(trialBoard);
+  outputBoard(trialBoard);
   
   for (var r = 1; r <= 9; r++) {
     for (var c = 1; c <= 9; c++) {
@@ -267,6 +269,23 @@ var findSolution = function(trialBoard) {
       }
     }
   }
+}
+
+var outputBoard = function(b) {
+  for (var r = 1; r <= 9; r++) {
+    for (var c = 1; c <= 9; c++) {
+      util.print(get(r, c, b));
+      if (c%3 === 0) {
+        util.print("  ");
+      }
+    }
+    util.print("\n");
+    if (r%3 === 0) {
+      util.print("\n");
+    }
+  }
+  util.print("\n----------\n");
+  
 }
 
 var board = "007090058090500000008306709600040231000162000712050004201907500000001080870030400";
